@@ -12,18 +12,25 @@ function getCurrentDateTime() {
 }
 
 function IntroSection() {
+  const articleStyles = {
+    container: "article",
+    title: "article-title",
+    body: "article-body",
+    link: "article-link"
+  };
+
   return (
-    <div>
-      <h3>TechUp Thailand</h3>
-      <p>เตรียมพบกับหลักสูตรปั้นคุณเป็น Software Developer ภายใน 4 เดือน</p>
-      <a href="https://www.techupth.com/" target="blank">
+    <div className={articleStyles.container}>
+      <h3 className={articleStyles.title}>TechUp Thailand</h3>
+      <p className={articleStyles.body}>เตรียมพบกับหลักสูตรปั้นคุณเป็น Software Developer ภายใน 4 เดือน</p>
+      <a href="https://www.techupth.com/" className={articleStyles.link} target="_blank">
         techupth.com
       </a>
-      {/* ให้แสดงวันเวลาด้วย Function `getCurrentDateTime` ที่กำหนดไว้ให้ */}
+      {/* แสดงวันเวลาด้วย Function `getCurrentDateTime` ที่กำหนดไว้ให้ */}
+      <p className={articleStyles.body}>{getCurrentDateTime()}</p>
     </div>
   );
 }
-
 function LoginForm() {
   return (
     <div class="login-container">
@@ -44,6 +51,10 @@ function App() {
     <div className="app">
       <IntroSection />
       <LoginForm />
+    {/* เพิ่ม HTML Element เพื่อแสดงวันเวลาที่ได้จาก getCurrentDateTime */}
+    <div className="bootcamp-start-time">
+        วันเวลาเริ่มหลักสูตร คือ {getCurrentDateTime()}
+      </div> 
     </div>
   );
 }
